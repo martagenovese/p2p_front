@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tutoring Website</title>
+    <script src="login.js" defer></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <form id="tutor-login-form" onsubmit="handleLogin(event, 'tutor')">
+            <div class="form-group">
+                <label for="tutor-username">Username:</label>
+                <input type="text" id="tutor-username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="tutor-password">Password:</label>
+                <input type="password" id="tutor-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="role"></label>
+                <input type="hidden" name="user_type" value="tutor">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

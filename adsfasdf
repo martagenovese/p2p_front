@@ -1,0 +1,113 @@
+
+
+
+#add-tutor-container{
+    background-color: #fff;
+    width: 100%;
+    padding: 4vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+#add-tutor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+#add-tutor .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+label {
+    font-size: 0.9rem;
+    color: #757575;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #6200ee;
+    box-shadow: none;
+}
+
+
+
+/* button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6200ee;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+button:active {
+    background-color: #30009c;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(98, 0, 238, 0.3);
+} */
+
+
+
+
+
+#add-tutor-popup{
+    position: fixed;
+    top: 100;
+    left: 100;
+    width: fit-content;
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 10px;
+}

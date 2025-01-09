@@ -1,0 +1,178 @@
+/* Minimalist Material Design CSS for Admin Dashboard */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    color: #333;
+}
+
+header {
+    background-color: #6200ee;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: opacity 0.3s ease;
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+main {
+    padding: 20px;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #212121;
+}
+
+#calendar {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.fc-toolbar-title {
+    text-transform: capitalize;
+}
+
+.hasEvents {
+    cursor: pointer;
+}
+
+.hasEvents:hover {
+    background-color: #f5f5f5;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #212121;
+}
+
+#unvalidated-events-list {
+    width: 75vw;
+    list-style: none;
+    padding: 0;
+    align-items: center;
+}
+
+#unvalidated-events-list li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#unvalidated-events-list li button {
+    background-color: #6200ee;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+}
+
+#unvalidated-events-list li button:hover {
+    background-color: #3700b3;
+}
+
+#unvalidated-events-list li button:active {
+    background-color: #30009c;
+}
+
+#event-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+button.close-modal {
+    margin-top: 10px;
+    background-color: #6200ee;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button.close-modal:hover {
+    background-color: #3700b3;
+}
+
+button.close-modal:active {
+    background-color: #30009c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
