@@ -13,23 +13,23 @@
         <nav>
             <ul>
                 <li><a href="index.html">Indietro</a></li>
-                <li><a href="../login.html" onclick="handleLogout()">Logout</a></li>
+                <li><a href="../logout.js" onclick="handleLogout()">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h2>Le materie che insegni</h2>
         <ul id="subjects-list"></ul>
-        <div id="add-subject-form">
+        <section id="add-subject-form">
             <h3>Aggiungi materia</h3>
-            <div id="add-subject">
+            <form id="add-subject">
                 <div class="form-group">
                     <label for="subject-name">Nome della materia come indicato sull'orario</label>
                     <input type="text" id="subject-name" name="subject_name" required>
                 </div>
-                <button onclick="handleAddSubject()">Aggiungi materia</button>
-            </div>
-        </div>
+                <button type="button" onclick="handleAddSubject()">Aggiungi materia</button>
+            </form>
+        </section>
     </main>
 </body>
 </html>

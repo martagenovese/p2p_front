@@ -4,6 +4,9 @@ async function handleLogin(event, userType) {
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
+    const loginButton = document.querySelector('button[type="submit"]');
+
+    loginButton.disabled = true;
 
     try {
         const response = await fetch('http://peertopeer.martagenovese.com:5000/login', {
@@ -22,13 +25,13 @@ async function handleLogin(event, userType) {
             localStorage.setItem('user_id', formData.get('username'));
             localStorage.setItem('logged_in', 'true');
             if (userType === 'tutor') {
-                window.location.href = './tutor/index.html';
+                window.location.href = '../tutor/index.html';
             } else if (userType === 'tutee') {
-                window.location.href = './tutee/index.html';
+                window.location.href = '../tutee/index.html';
             } else if (userType === 'admin') {
-                window.location.href = './admin/index.html';
+                window.location.href = '../admin/index.html';
             } else if (userType === 'centralino') {
-                window.location.href = './centralino/index.html';
+                window.location.href = '../centralino/index.html';
             }
         } else {
             alert(`Error: ${result.error}`);
@@ -36,10 +39,11 @@ async function handleLogin(event, userType) {
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred. Please try again.');
+        loginButton.removeAttribute('disabled');
     }
 }
 
-document.getElementById('tutor-login-form').addEventListener('submit', (event) => handleLogin(event, 'tutor'));
-document.getElementById('tutee-login-form').addEventListener('submit', (event) => handleLogin(event, 'tutee'));
-document.getElementById('admin-login-form').addEventListener('submit', (event) => handleLogin(event, 'admin'));
-document.getElementById('centralino-login-form').addEventListener('submit', (event) => handleLogin(event, 'centralino'));
+//document.getElementById('tutor-login-form').addEventListener('submit', (event) => handleLogin(event, 'tutor'));
+//ocument.getElementById('tutee-login-form').addEventListener('submit', (event) => handleLogin(event, 'tutee'));
+//document.getElementById('admin-login-form').addEventListener('submit', (event) => handleLogin(event, 'admin'));
+//document.getElementById('centralino-login-form').addEventListener('submit', (event) => handleLogin(event, 'centralino'));

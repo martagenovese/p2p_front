@@ -1,0 +1,96 @@
+/* Import Global Styles */
+@import '../main.css';
+
+/* Specific styles for Tutor Pages */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: var(--header-height);
+}
+
+main {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 7vh; /* To account for the fixed header */
+}
+
+h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+section {
+    margin-bottom: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+#calendar, #calendar-events {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 0.9rem;
+    color: #757575;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-color var(--transition), transform var(--transition);
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+button[type="button"] {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    h2, h3 {
+        font-size: 1.2rem;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}

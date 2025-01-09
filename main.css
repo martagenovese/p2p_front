@@ -1,0 +1,146 @@
+/* Global Variables */
+:root {
+    --primary-color: #5c00dd;
+    --primary-color-hover: #3700b3;
+    --primary-color-active: #30009c;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --header-height: 7vh;
+    --font-family: 'Roboto', sans-serif;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+    --transition: 0.3s ease;
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    flex-direction: column;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: opacity var(--transition);
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition);
+}
+
+button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+button:active {
+    background-color: var(--primary-color-active);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(98, 0, 238, 0.3);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 5vh 3vw;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content label {
+    font-size: 0.9rem;
+    color: #757575;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-color var(--transition), transform var(--transition);
+    box-sizing: border-box;
+}
+
+.modal-content input:focus {
+    border-color: var(--primary-color);
+    box-shadow: none;
+}

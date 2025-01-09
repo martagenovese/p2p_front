@@ -1,0 +1,71 @@
+/* editTutors.css */
+
+@import '../../main.css';
+
+/* Specific styles for editTutors */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+#remove-tutor {
+    width: 100%;
+}
+
+#tutors-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tutors-table th, #tutors-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#tutors-table th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+#tutors-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#tutors-table button {
+    padding: 5px 10px;
+}
+
+.add-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+.add-button:hover {
+    background-color: #7e3ff2;
+}
+
+#add-tutor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vh;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+}

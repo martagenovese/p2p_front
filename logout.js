@@ -14,7 +14,7 @@ async function handleLogout() {
             localStorage.removeItem('user_type');
             localStorage.removeItem('user_id');
             localStorage.setItem('logged_in', 'false');
-            window.location.href = './index.html';
+            window.location.href = 'login/index.html';
         } else {
             alert(`Error: ${result.error}`);
         }

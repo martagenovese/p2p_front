@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('logged_in') !== 'true' || localStorage.getItem('user_type') !== 'tutor') {
-        window.location.href = '../login.html';
+        window.location.href = '../login/index.html';
+        return;
     }
 
     const subjectsList = document.getElementById('subjects-list');
@@ -10,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(`http://peertopeer.martagenovese.com:5000/materie?matricola=${matricola}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             data.forEach(subject => {
                 const listItem = document.createElement('li');
                 listItem.textContent = subject;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 subjectsList.appendChild(listItem);
             });
         })
-        .catch(error => console.error('Errore durante il recupero delle materie', error));
+        .catch(error => console.error('Errore durante il recupero delle materie:', error));
 
     // Handle the addition of a new subject
     document.getElementById('add-subject').addEventListener('submit', handleAddSubject);
@@ -47,16 +47,16 @@ function handleRemoveSubject(subjectId, listItem) {
             }
         })
         .catch(error => {
-            console.error('Errore durante la rimozione della materia', error);
+            console.error('Errore durante la rimozione della materia:', error);
             alert('Si è verificato un errore. Riprova.');
         });
     }
 }
 
-function handleAddSubject() {
+function handleAddSubject(event) {
+    event.preventDefault();
     const form = document.getElementById('add-subject');
     const subjectName = form.querySelector('input[name="subject_name"]').value.toUpperCase();
-    console.log(subjectName);
     const tutorId = localStorage.getItem('user_id');
 
     fetch('http://peertopeer.martagenovese.com:5000/materie', {

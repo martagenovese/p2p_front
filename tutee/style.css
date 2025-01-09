@@ -1,0 +1,98 @@
+/* Import Global Styles */
+@import '../main.css';
+
+/* Specific styles for Tutee and Prenota Pages */
+body {
+    display: flex;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+#calendar {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color var(--transition);
+}
+
+select:focus {
+    border-color: var(--primary-color);
+}
+
+label {
+    font-size: 1rem;
+    color: #757575;
+    margin-bottom: 5px;
+    display: block;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    select {
+        max-width: 100%;
+    }
+}
