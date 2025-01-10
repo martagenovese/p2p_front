@@ -42,8 +42,3 @@ async function handleLogin(event, userType) {
         loginButton.removeAttribute('disabled');
     }
 }
-
-//document.getElementById('tutor-login-form').addEventListener('submit', (event) => handleLogin(event, 'tutor'));
-//ocument.getElementById('tutee-login-form').addEventListener('submit', (event) => handleLogin(event, 'tutee'));
-//document.getElementById('admin-login-form').addEventListener('submit', (event) => handleLogin(event, 'admin'));
-//document.getElementById('centralino-login-form').addEventListener('submit', (event) => handleLogin(event, 'centralino'));

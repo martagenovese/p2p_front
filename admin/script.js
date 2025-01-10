@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             const listItem = document.createElement('li');
                             const add = document.createElement('button');
                             add.textContent = 'Valida';
-                            listItem.innerHTML = `<b>${event.title}</b>&nbsp da parte di &nbsp<b>${event.matricolaP}</b>&nbsp il giorno&nbsp <b>${event.start.split('T')[0]}</b>`;
+                            listItem.innerHTML = `<span><b>${event.title}</b> da parte di <b>${event.matricolaP}</b> il giorno <b>${event.start.split('T')[0]}</b></span>`;
                             listItem.dataset.eventId = event.id;
 
                             add.addEventListener('click', () => {
@@ -88,54 +88,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 .catch(error => {
                     failureCallback(error);
                 });
-        },
-        dateClick: function(info) {
-            const existingModal = document.getElementById('event-modal');
-            if (existingModal) {
-                document.body.removeChild(existingModal);
-                document.body.removeChild(document.getElementById('modal-overlay'));
-            }
-
-            const eventsForDay = calendar.getEvents().filter(event =>
-                event.start.toISOString().split('T')[0] === info.dateStr
-            );
-
-            if (eventsForDay.length === 0) return;
-
-            const overlay = document.createElement('div');
-            overlay.id = 'modal-overlay';
-            document.body.appendChild(overlay);
-
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedDate = new Date(info.dateStr).toLocaleDateString('it-IT', options);
-
-            const modal = document.createElement('div');
-            modal.id = 'event-modal';
-
-            const modalHeader = document.createElement('h3');
-            modalHeader.textContent = `Eventi del giorno ${formattedDate}`;
-            modal.appendChild(modalHeader);
-
-            const eventList = document.createElement('ul');
-            eventsForDay.forEach(event => {
-                const eventItem = document.createElement('li');
-                eventItem.textContent = event.title;
-                eventList.appendChild(eventItem);
-            });
-            modal.appendChild(eventList);
-
-            const closeButton = document.createElement('button');
-            closeButton.textContent = 'Chiudi';
-            closeButton.classList.add('close-modal');
-            closeButton.addEventListener('click', () => {
-                document.body.removeChild(modal);
-                document.body.removeChild(overlay);
-            });
-            modal.appendChild(closeButton);
-
-            document.body.appendChild(modal);
         }
     });
 
     calendar.render();
+
+    // Aggiungi un listener al contenitore del calendario
+    calendarEl.addEventListener('click', (event) => {
+        const cell = event.target.closest('.fc-day'); // Trova la cella più vicina cliccata
+        if (!cell) return; // Se non è stata cliccata una cella, esci
+
+        const dateStr = cell.getAttribute('data-date'); // Ottieni la data della cella
+        if (!dateStr) return; // Se la cella non ha una data, esci
+
+        const eventsForDay = calendar.getEvents().filter(event =>
+            event.start.toISOString().split('T')[0] === dateStr
+        );
+
+        if (eventsForDay.length === 0) return; // Se non ci sono eventi, non fare nulla
+
+        // Rimuovi eventuali modali esistenti
+        const existingModal = document.getElementById('event-modal');
+        if (existingModal) {
+            document.body.removeChild(existingModal);
+            document.body.removeChild(document.getElementById('modal-overlay'));
+        }
+
+        // Crea l'overlay
+        const overlay = document.createElement('div');
+        overlay.id = 'modal-overlay';
+        document.body.appendChild(overlay);
+
+        // Formatta la data
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = new Date(dateStr).toLocaleDateString('it-IT', options);
+
+        // Crea il modal
+        const modal = document.createElement('div');
+        modal.id = 'event-modal';
+
+        const modalHeader = document.createElement('h3');
+        modalHeader.textContent = `Eventi del giorno ${formattedDate}`;
+        modal.appendChild(modalHeader);
+
+        const eventList = document.createElement('ul');
+        eventsForDay.forEach(event => {
+            const eventItem = document.createElement('li');
+            eventItem.textContent = event.title;
+            eventList.appendChild(eventItem);
+        });
+        modal.appendChild(eventList);
+
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Chiudi';
+        closeButton.classList.add('close-modal');
+        closeButton.addEventListener('click', () => {
+            document.body.removeChild(modal);
+            document.body.removeChild(overlay);
+        });
+        modal.appendChild(closeButton);
+
+        document.body.appendChild(modal);
+    });
 });

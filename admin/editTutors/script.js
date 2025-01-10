@@ -28,23 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal handling
     const modal = document.getElementById('add-tutor-modal');
     const openModalButton = document.getElementById('open-add-tutor-modal');
-    const closeModalButton = modal.querySelector('.close-modal');
+    const thead = document.getElementById('thead');
 
     openModalButton.addEventListener('click', () => {
         modal.style.display = 'flex'
+        thead.style.position = 'static'
         modal.onclick = (event) => {
             event.preventDefault();
             event.stopPropagation();
             if (event.target === modal) {
                 modal.style.display = 'none';
                 modal.onclick = null;
+                thead.style.position = 'sticky'
             }
         }
         }
     );
 
     // Add tutor
-    document.getElementById('add-tutor').addEventListener('submit', handleAddTutor);
+    document.getElementById('add-tutor-button').addEventListener('submit', handleAddTutor);
 });
 
 function handleDeleteTutor(matricola, row) {
@@ -67,11 +69,11 @@ function handleDeleteTutor(matricola, row) {
     }
 }
 
-function handleAddTutor(event) {
-    event.preventDefault();
-    const form = event.target;
+function handleAddTutor() {
+    console.log('add tutor');
+    const form = document.getElementById('add-tutor');
     const formData = new FormData(form);
-
+    console.log(Object.fromEntries(formData));
     fetch('http://peertopeer.martagenovese.com:5000/tutors', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

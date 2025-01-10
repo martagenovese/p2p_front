@@ -13,7 +13,7 @@ This project is a web application designed to facilitate peer tutoring. It allow
     - book lessons
         - email sent to tutor, tutee, both parents
     - see their reserved lessons
-    - delete reservation (anytime)
+    - delete reservation (anytime????????)
         - email sent to tutor, tutee, both parents, centralino, admin
 - Account
     - student email
@@ -39,7 +39,7 @@ This project is a web application designed to facilitate peer tutoring. It allow
 ### Admin
 - Dashboard
     - manage tutors (add/delete)
-    - validate lessons.
+    - validate lessons availability.
 
 ### Centralino
 - Dashboard
@@ -73,8 +73,5 @@ This project is a web application designed to facilitate peer tutoring. It allow
 
 
 TODO:
-aggiungere argomenti a Lezioni
 aggiungere nome e cognome a lezioni
-cambiare la PK con la mail
 autenticazione google
-dividere POST DELETE

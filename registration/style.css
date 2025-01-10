@@ -1,11 +1,10 @@
-/* Import Global Styles */
+
 @import '../main.css';
 
 body {
     overflow-y: hidden;
 }
 
-/* Specific styles for Registration Page */
 .registration-container {
     background-color: #fff;
     box-shadow: var(--box-shadow);

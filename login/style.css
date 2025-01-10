@@ -1,8 +1,5 @@
-/* login.css */
-
 @import '../main.css';
 
-/* Specific styles for Login Page */
 body {
     display: flex;
     justify-content: center;

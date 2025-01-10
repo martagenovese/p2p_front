@@ -1,7 +1,6 @@
-/* Import Global Styles */
+
 @import '../main.css';
 
-/* Specific styles for Tutor Pages */
 body {
     display: flex;
     flex-direction: column;
@@ -13,7 +12,7 @@ main {
     padding: 20px;
     width: 100%;
     max-width: 1200px;
-    margin-top: 7vh; /* To account for the fixed header */
+    margin-top: 7vh; 
 }
 
 h2, h3 {

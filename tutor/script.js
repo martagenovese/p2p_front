@@ -55,7 +55,7 @@ function createCalendar(id, fetchUrl) {
         selectable: true,
         selectAllow: (selectInfo) => {
             const now = new Date();
-            now.setDate(now.getDate() + 2); // Two days ahead of the current date
+            now.setDate(now.getDate() + 2);
             return selectInfo.start >= now;
         },
         dateClick: (info) => {

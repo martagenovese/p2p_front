@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const subjectsList = document.getElementById('subjects-list');
     const matricola = localStorage.getItem('user_id');
 
-    // Fetch and display the list of subjects
+
     fetch(`http://peertopeer.martagenovese.com:5000/materie?matricola=${matricola}`)
         .then(response => response.json())
         .then(data => {
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Errore durante il recupero delle materie:', error));
 
-    // Handle the addition of a new subject
     document.getElementById('add-subject').addEventListener('submit', handleAddSubject);
 });
 
@@ -70,7 +69,7 @@ function handleAddSubject(event) {
     .then(data => {
         if (data.message) {
             alert('Materia aggiunta con successo');
-            // Add the new subject to the list
+
             const listItem = document.createElement('li');
             listItem.textContent = subjectName;
             const deleteButton = document.createElement('button');
