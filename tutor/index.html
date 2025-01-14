@@ -11,32 +11,61 @@
 </head>
 <body>
     <header>
-        <h1 id="greeting">Welcome, Tutor!</h1>
+        <h1 id="greeting">BENTORNATO, TUTOR!</h1>
         <nav>
-            <h2>Dashboard</h2>
             <ul>
-                <li><a href="/tutor/profile.html">Il tuo profilo</a> - Per gestire le materie insegnate</li>
-                <li><a href="../logout.js">Logout</a></li>
+                <li><a href="#">Profilo</a></li>
+                <li><a href="#">Tutee</a></li>
+                <li><a href="#">Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <div id='add-tutor-modal' class='modal'>
+            <div class='modal-content'>
+                <div>
+                    <h3>Aggiungi Turno</h3>
+                    <p id="data-info">ore giono data mese</p>
+                </div>
+                
+                <div class='form-group'>
+                    <label for='shift-time'>Seleziona Turno:</label>
+                    <select id='shift-time' name='shift-time' required>
+                        <option value='1'>13:40</option>
+                        <option value='2'>14:30</option>
+                    </select>
+                </div>
+                <button onclick='handleAddShift();' type='submit'>Aggiungi Turno</button>
+            </div>
+        </div>
         <section>
-            <h2>Tutte le lezioni</h2>
-            <p>Per dare la propria disponibilità è sufficiente cliccare sul giorno interessato e seguire le indicazioni</p>
+            <h2>TUTTE LE LEZIONI</h2>
+            <p>Per dare la propria disponibilità è sufficiente cliccare sul giorno interessato e seguire le indicazioni.</p>
             <div id="calendar"></div>
         </section>
         <section>
-            <h2>Lezioni in programma</h2>
-            <p>Calendario con le lezioni prenotate dai tutorati</p>
-            <div id="calendar-events"></div>
+            <h2>LEZIONI</h2>
+            <div class="card">
+                <div class="inner-card">
+                    <h3>LEZIONI IN PROGRAMMA</h3>
+                    <ul id="scheduled-lessons-list">
+                        <!-- Scheduled lessons will be dynamically inserted here -->
+                    </ul>
+                </div>
+                <div class="inner-card">
+                    <h3>LEZIONI TENUTE</h3>
+                    <ul id="held-lessons-list">
+                        <!-- Held lessons will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
         </section>
         <section>
-            <h2>Lezioni Tenute</h2>
-            <p id="lessons-count"></p>
-            <p id="lessons-count-PASTReserved"></p>
-            <p id="lessons-total"></p>
-            <p>Quando avrai raggiunto un totale di 40 lezioni non potrai più fare altre lezioni</p>
+            <h2>LEZIONI TOTALI</h2>
+            <p id="lessons-count">Lezioni in programma: <span>0</span></p>
+            <p id="lessons-count-PASTReserved">Lezioni tenute: <span>0</span></p>
+            <p id="lessons-total">Totale lezioni: <span>0</span></p>
+            <p style="color: red;">Quando avrai raggiunto un totale di 40 lezioni non potrai più fare altre lezioni.</p>
         </section>
     </main>
 </body>

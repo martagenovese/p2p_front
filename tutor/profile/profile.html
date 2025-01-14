@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Profile - Tutoring Website</title>
+    <link rel='stylesheet' href='style.css'>
+    <script src="script.js" defer></script>
+    <script src="../logout.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 id="greeting">BENTORNATO, TUTOR!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Indietro</a></li>
+                <li><a href="../logout.js" onclick="handleLogout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>LE MATERIE CHE INSEGNI</h2>
+        <div class="content-wrapper">
+            <table id="subjects-table">
+                <thead>
+                </tbody>
+            </table>
+            <section id="add-subject-form">
+                <h3>AGGIUNGI MATERIA</h3>
+                <form id="add-subject">
+                    <div class="form-group">
+                        <label for="subject-name">Nome della materia come indicato sull'orario</label>
+                        <input type="text" id="subject-name" name="subject_name" required>
+                    </div>
+                </form>
+                <button type="button" onclick="handleAddSubject()">Aggiungi materia</button>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,4 +1,4 @@
-@import '../main.css';
+@import '../../main.css';
 
 * {
     margin: 0;
@@ -7,7 +7,6 @@
 }
 
 body {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: var(--font-family);
@@ -40,12 +39,6 @@ header h1 {
     font-size: 1.5rem;
     margin: 0;
 }
-/*header*/
-
-h2, h3 {
-    color: var(--text-color);
-    margin-bottom: 15px;
-}
 
 /*nav*/
 nav ul {
@@ -55,24 +48,23 @@ nav ul {
     padding: 0;
 }
 
-nav li {
+nav ul li {
     margin-left: 20px;
     text-decoration: underline;
 }
 
-nav a {
+nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 1rem;
     transition: opacity var(--transition);
 }
 
-nav a:hover {
+nav ul li a:hover {
     opacity: 0.8;
 }
-/*nav*/
 
-
+/*main*/
 main {
     width: 100%;
     display: flex;
@@ -80,15 +72,75 @@ main {
     gap: 2vh;
     padding: 2vh;
     overflow-y: auto;
+    max-height: 86vh;
     height: 100%;
 }
 
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #212121;
+}
+
+/*section*/
 section {
     background-color: #fff;
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
+
+/*filters*/
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1vh;
+}
+
+.filters div{
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+.filters label {
+    width: 100%;
+    font-size: 0.9rem;
+    color: #757575;
+}
+
+select {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    box-sizing: border-box;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(92, 0, 221, 0.3);
+}
+
+/*filters*/
+
+
+
 
 /*card*/
 .card {
@@ -97,28 +149,43 @@ section {
     gap: 2vh;
     justify-content: center;
     align-items: start;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+.card-section {
+    margin-bottom: 20px;
 }
 
 .inner-card {
-    background-color: #fff;
-    padding: 20px;
-    width: 100%;
-    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
     box-shadow: var(--box-shadow);
 }
 
-.card ul {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1vh;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    align-items: start;
-    justify-content: center;
+.inner-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #212121;
 }
-/*card*/
+
+.inner-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.inner-card ul li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+}
 
 /*modal*/
 .modal {
@@ -135,7 +202,7 @@ section {
 }
 
 .modal-content {
-    width: 20%;
+    width: 40%;
     background-color: white;
     padding: 5vh 3vw;
     border-radius: 15px;
@@ -147,11 +214,6 @@ section {
     align-items: center;
 }
 
-#data-info{
-    text-align: center;
-}
-
-
 .modal-content label {
     font-size: 0.9rem;
     color: #757575;
@@ -159,27 +221,20 @@ section {
     margin-bottom: 5px;
 }
 
-.modal-content select {
+.modal-content input {
     width: 100%;
-    padding: 10px 15px;
+    padding: 5px 10px;
     font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    color: #333;
+    border: none;
+    border-bottom: 2px solid #ccc;
     outline: none;
-    transition: border-color var(--transition), box-shadow var(--transition);
+    transition: border-color var(--transition), transform var(--transition);
     box-sizing: border-box;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23333" d="M2 0L0 2h4z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 10px;
 }
 
-.modal-content select:focus {
+.modal-content input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 5px rgba(92, 0, 221, 0.3);
+    box-shadow: none;
 }
 
 .modal-content button {
@@ -192,11 +247,9 @@ section {
     transition: background-color var(--transition);
     font-weight: bold;
 }
-/*modal*/
-
 
 /*button*/
-/* button {
+button {
     padding: 8px;
     background-color: var(--primary-color);
     color: #fff;
@@ -223,65 +276,42 @@ button:disabled {
 button:focus {
     outline: none;
     box-shadow: 0 2px 4px rgba(98, 0, 238, 0.3);
-} */
-/*button*/
+}
 
-#calendar, #calendar-events {
+h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#calendar {
     background-color: #fff;
     padding: 15px;
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     box-shadow: var(--box-shadow);
-    margin-bottom: 30px;
 }
 
-/* label {
-    font-size: 0.9rem;
-    color: #757575;
-    display: block;
-    margin-bottom: 5px;
+.fc-toolbar-title {
+    text-transform: capitalize;
 }
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-    transition: border-color var(--transition), transform var(--transition);
-    box-sizing: border-box;
-}
-
-input[type="text"]:focus {
-    border-color: var(--primary-color);
-    box-shadow: none;
-}
-
-button[type="button"] {
-    margin-top: 10px;
-} */
-
-
-
-
-
-
-
 
 @media (max-width: 768px) {
-    main {
-        padding: 15px;
+    header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    h2, h3 {
-        font-size: 1.2rem;
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    input[type="text"] {
-        font-size: 0.9rem;
-    }
-
-    button {
-        font-size: 0.9rem;
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
     }
 }

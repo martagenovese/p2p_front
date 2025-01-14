@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('logged_in') !== 'true' || localStorage.getItem('user_type') !== 'tutor') {
-        window.location.href = '../login/index.html';
-        return;
-    }
-
+    
     const subjectsList = document.getElementById('subjects-list');
     const matricola = localStorage.getItem('user_id');
 

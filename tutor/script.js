@@ -2,27 +2,43 @@ const userName = localStorage.getItem('user_name');
 const matricola = localStorage.getItem('user_id');
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('logged_in') !== 'true' || localStorage.getItem('user_type') !== 'tutor') {
-        window.location.href = '../login/index.html';
-    }
-
     if (userName) {
         document.getElementById('greeting').textContent = `Benvenuto, ${userName}!`;
     }
 
     createCalendar('calendar', `http://peertopeer.martagenovese.com:5000/lezioni?matricolaP=${matricola}`);
-    createCalendar('calendar-events', `http://peertopeer.martagenovese.com:5000/lezioni?matricolaP=${matricola}&matricolaT=%`);
 
     countLessons().then(([future, pastReserved]) => {
         document.getElementById('lessons-count').textContent = `Hai ${future} lezioni future`;
         document.getElementById('lessons-count-PASTReserved').textContent = `Hai tenuto ${pastReserved} lezioni`;
         document.getElementById('lessons-total').textContent = `Hai ${future + pastReserved} lezioni totali`;
+
         if (future + pastReserved >= 40) {
             document.getElementById('lessons-total').style.color = 'red';
             document.getElementById('calendar').style.pointerEvents = 'none';
         }
+
+        populateLessonLists(future, pastReserved);
     });
 });
+
+function populateLessonLists(future, pastReserved) {
+    const scheduledList = document.getElementById('scheduled-lessons-list');
+    const heldList = document.getElementById('held-lessons-list');
+
+    // Example logic to populate lists
+    for (let i = 0; i < future; i++) {
+        const li = document.createElement('li');
+        li.textContent = `Lezione futura ${i + 1}`;
+        scheduledList.appendChild(li);
+    }
+
+    for (let i = 0; i < pastReserved; i++) {
+        const li = document.createElement('li');
+        li.textContent = `Lezione tenuta ${i + 1}`;
+        heldList.appendChild(li);
+    }
+}
 
 function createCalendar(id, fetchUrl) {
     const calendarEl = document.getElementById(id);
@@ -96,7 +112,7 @@ async function countLessons() {
     return [future, pastReserved];
 }
 
-function addLesson(info, calendar) {
+function addLesson2(info, calendar) {
     let turn = prompt('Dai disponibilità per il turno delle 13:40 o delle 14:30?\nInserisci "1" per le 13:40 o "2" per le 14:30:');
     turn = parseInt(turn);
     if (turn !== 1 && turn !== 2) {
@@ -141,6 +157,25 @@ function addLesson(info, calendar) {
         alert('Si è verificato un errore. Riprova.');
     });
 }
+
+
+function addLesson(info, calendar) {
+    const modal = document.getElementById('add-tutor-modal');
+    const dataInfo = document.getElementById('data-info');
+    dataInfo.innerHTML = info.dateStr;
+
+    modal.style.display = 'flex'
+    modal.onclick = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            modal.onclick = null;
+        }
+    }
+}
+
+
 
 function removeLesson(info) {
     fetch('http://peertopeer.martagenovese.com:5000/lezioni', {

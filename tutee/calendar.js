@@ -2,9 +2,6 @@ const userName = localStorage.getItem('user_name');
 const matricola = localStorage.getItem('user_id');
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (!isUserLoggedIn()) {
-        redirectToLogin();
-    }
 
     if (userName) {
         displayGreeting(userName);

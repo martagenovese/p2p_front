@@ -6,9 +6,6 @@ const classesSelect = document.getElementById('tutor_classes');
 const indirizzoSelect = document.getElementById('tutor_indirizzo');
 
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('logged_in') !== 'true' || localStorage.getItem('user_type') !== 'tutee') {
-        window.location.href = '../login.html';
-    }
 
     if (userName) {
         document.getElementById('greeting').textContent = `Welcome, ${userName}!`;

@@ -1,99 +1,154 @@
 @import '../../main.css';
 
-body{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 2vh;
+    overflow: hidden;
     gap: 2vh;
 }
 
+/* Header */
+header {
+    height: 8vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: opacity var(--transition);
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+/* Main */
 main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2vh;
     overflow-y: auto;
-    width: 100%;
-}
-
-#remove-tutor {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    height: 100%;
     max-height: 86vh;
-    border-radius: 15px;
 }
 
-#tutors-table {
-    width: 100%;
-    border-collapse: collapse;
+main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #212121;
 }
 
-#tutors-table th, #tutors-table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
+h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
 }
 
-
-#tutors-table tr:nth-child(even) {
-    background-color: #fcfcfc;
-} 
-
-#tutors-table th {
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-#tutors-table tr:hover {
-    background-color: #dfdfdf;
-}
-
-#tutors-table button {
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-.add-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 2rem;
-    border: none;
-    cursor: pointer;
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
 
-.add-button:hover {
-    background-color: #7e3ff2;
+
+#remove-tutor {
+    width: 100%;
 }
 
-#add-tutor {
+/* Calendar */
+#calendar {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.fc-toolbar-title {
+    text-transform: capitalize;
+}
+
+.hasEvents {
+    cursor: pointer;
+}
+
+.hasEvents li {
+    pointer-events: none;
+}
+
+.hasEvents:hover {
+    background-color: #f5f5f5;
+}
+
+/* Unvalidated Events List */
+#unvalidated-events-list {
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+
+#unvalidated-events-list li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
     align-items: center;
-    gap: 1.5vh;
-    width: 100%;
+    box-shadow: var(--box-shadow);
+    justify-content: space-between;
 }
 
-.form-group {
-    width: 100%;
+#unvalidated-events-list li button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
 }
-
-thead{
-    position: sticky;
-    top: 0;
-
-}
-
-
 
 .modal {
     display: none;
@@ -109,7 +164,7 @@ thead{
 }
 
 .modal-content {
-    width: 40%;
+    width: 50%;
     background-color: white;
     padding: 5vh 3vw;
     border-radius: 15px;
@@ -153,4 +208,195 @@ thead{
     cursor: pointer;
     transition: background-color var(--transition);
     font-weight: bold;
+}
+
+button.close-modal {
+    margin-top: 10px;
+}
+
+/* Button */
+button {
+    padding: 8px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition), scale var(--transition);
+}
+
+button:hover {
+    background-color: var(--primary-color-hover);
+    scale: 1.05;
+}
+
+button:active {
+    background-color: var(--primary-color-active);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(98, 0, 238, 0.3);
+}
+
+/* Card */
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    justify-content: center;
+    align-items: start;
+}
+
+.inner-card {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.card ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: start;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Table */
+#tutors-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tutors-table th, #tutors-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#tutors-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+#tutors-table th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+#tutors-table tr:hover {
+    background-color: #dfdfdf;
+}
+
+#tutors-table button {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* Add Button */
+.add-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+.add-button:hover {
+    background-color: #7e3ff2;
+}
+
+/* Add Tutor */
+#add-tutor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vh;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+}
+
+/* Responsive adjustments for phones */
+@media (max-width: 480px) {
+    body {
+        padding: 1vh;
+        gap: 1vh;
+    }
+
+    header {
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 3vh 2vw;
+    }
+
+    .modal-content input {
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+
+    .add-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+
+thead {
+    position: sticky;
+    top: 0;
 }

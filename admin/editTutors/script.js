@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check login
-    if (localStorage.getItem('logged_in') !== 'true' || localStorage.getItem('user_type') !== 'admin') {
-        window.location.href = '../login.html';
-    }
+   
 
     const tutorsTableBody = document.querySelector('#tutors-table tbody');
 

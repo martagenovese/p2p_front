@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('logged_in') !== 'true' || localStorage.getItem('user_type') !== 'admin') {
-        window.location.href = '../login/index.html';
-    }
 
     var calendarEl = document.getElementById('calendar');
     var unvalidatedEventsList = document.getElementById('unvalidated-events-list');
